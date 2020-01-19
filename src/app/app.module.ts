@@ -10,6 +10,7 @@ import { RegistrationComponent } from '../registartion/registration.component';
 import { LoginComponent } from '../login/login.component';
 
 import { AppService } from './app.service';
+import { TokenStorage } from  './token-storage.service';
 
 
 const appRoutes: Routes =[
@@ -21,7 +22,7 @@ const appRoutes: Routes =[
     imports: [ BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule],
     declarations: [ AppComponent, RegistrationComponent, LoginComponent ],
     bootstrap: [ AppComponent ],
-    providers: [ AppService, { provide: APP_BASE_HREF, useValue : '/' } ]
+    providers: [ AppService, { provide: APP_BASE_HREF, useValue : '/' }, TokenStorage ]
 })
 
 export class AppModule { }

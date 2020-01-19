@@ -6,9 +6,10 @@ import * as config  from '../../config.json';
 
 @Injectable()
 export class AppService {
-    constructor(private http: HttpClient, private tokenStorage: TokenStorage) { }
+    constructor(private http: HttpClient) { }
 
     private _options = { };
+
 
     // private setOptions() {
     //     this.tokenStorage.getAccessToken().subscribe((token: string) => {
@@ -19,4 +20,13 @@ export class AppService {
     //         }
     //     });
     // }
+
+    registration (data: any) {
+        return this.http.post(`${config.apiBaseUrl}/auth/registration`, data);
+    }
+
+    login (data: any) {
+        return this.http.post(`${config.apiBaseUrl}/auth/login`, data);
+    }
+
 }
