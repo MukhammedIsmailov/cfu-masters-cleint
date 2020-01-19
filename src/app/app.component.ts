@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorage } from "./token-storage.service";
+import { EmitterService } from "./emitter.service";
 
 @Component({
     selector: 'cfu-app',
     templateUrl: './app.component.html'
 })
 
-export class AppComponent {
-    constructor (private router: Router, private tokenStorage: TokenStorage) {
+export class AppComponent implements OnInit{
+    constructor (private router: Router, private tokenStorage: TokenStorage, private emitterService: EmitterService) {
     }
 
-    authorized = this.tokenStorage.isAuthorized();
+    authorized: boolean = false;
+
+    ngOnInit(): void {
+        this.authorized = this.tokenStorage.isAuthorized();
+
+        this.emitterService.getEmittedValue().subscribe((data: any) => {
+            this.authorized = true;
+        });
+    }
 
     signIn() {
         this.router.navigateByUrl('sign-in');

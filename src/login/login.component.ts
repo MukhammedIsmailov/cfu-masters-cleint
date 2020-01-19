@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { AppService } from '../app/app.service';
 import { TokenStorage } from '../app/token-storage.service';
+import { EmitterService } from "../app/emitter.service";
 
 import { ILoginDTO, IResponseLoginDTO } from './login.model';
 
@@ -13,7 +14,8 @@ import { ILoginDTO, IResponseLoginDTO } from './login.model';
     templateUrl: './login.component.html',
 })
 export class LoginComponent {
-    constructor (private apiService: AppService, private router: Router, private tokenStorage: TokenStorage) {}
+    constructor (private apiService: AppService, private router: Router, private tokenStorage: TokenStorage,
+                 private emitterService: EmitterService) {}
 
     loginData: ILoginDTO = {
         email: null,
@@ -30,6 +32,7 @@ export class LoginComponent {
             this.onError = false;
             this.apiService.login(this.loginData).subscribe((response: IResponseLoginDTO) => {
                 this.tokenStorage.setAccessToken(response.accessToken);
+                this.emitterService.change();
                 this.router.navigateByUrl('add-work');
             }, error => {
                 this.onLoginError = true;

@@ -19,6 +19,7 @@ import { AppService } from './app.service';
 import { TokenStorage } from  './token-storage.service';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { NotificationService } from './notification.service';
+import {EmitterService} from "./emitter.service";
 
 const appRoutes: Routes =[
     { path: 'sign-up', component: RegistrationComponent, },
@@ -36,7 +37,7 @@ const appRoutes: Routes =[
     declarations: [ AppComponent, RegistrationComponent, LoginComponent, WorkComponent, FindByKeywordComponent,
         FindBySourceComponent, FindByWordComponent, WorkDetailComponent],
     bootstrap: [ AppComponent ],
-    providers: [ AppService, { provide: APP_BASE_HREF, useValue : '/' }, TokenStorage, NotificationService ]
+    providers: [ AppService, { provide: APP_BASE_HREF, useValue : '/' }, TokenStorage, NotificationService, EmitterService ]
 })
 
 export class AppModule { }
