@@ -36,14 +36,17 @@ export class WorkComponent {
         this.workData.keyWordsRaw = undefined;
         this.workData.sourcesRaw = undefined;
 
-        this.apiService.addWork(this.workData).subscribe(() => {
-            this.workData.keyWords = keywords.map((key) => {
-                return { title: key };
-            });
+        this.workData.keyWords = keywords.map((key) => {
+            console.log(key)
+            return { title: key };
+        });
 
-            this.workData.sources = sources.map((s) => {
-                return { link: s };
-            });
+        this.workData.sources = sources.map((s) => {
+            return { link: s };
+        });
+
+        this.apiService.addWork(this.workData).subscribe(() => {
+
         });
     }
 }

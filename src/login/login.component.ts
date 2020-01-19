@@ -22,6 +22,7 @@ export class LoginComponent {
     onError: boolean = false;
     onLoginError: boolean = false;
 
+
     onSubmit() {
         if(!this.loginData.email || !this.loginData.password) {
             this.onError = true;
@@ -29,6 +30,7 @@ export class LoginComponent {
             this.onError = false;
             this.apiService.login(this.loginData).subscribe((response: IResponseLoginDTO) => {
                 this.tokenStorage.setAccessToken(response.accessToken);
+                this.router.navigateByUrl('add-work');
             }, error => {
                 this.onLoginError = true;
             });

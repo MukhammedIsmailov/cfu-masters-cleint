@@ -1,23 +1,35 @@
 <div class="app">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background: #296767">
-        <a class="navbar-brand" href="#">Регистрация</a>
+        <a class="navbar-brand" href="#">CFU-masters</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item" *ngIf="!authorized">
+                    <a class="nav-link" (click)="signIn()">Войти</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                <li class="nav-item" *ngIf="!authorized">
+                    <a class="nav-link" (click)="signUp()">Регистрация</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                <li class="nav-item" *ngIf="authorized">
+                    <a class="nav-link" (click)="addWork()" >Добавить работу</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                <li class="nav-item" *ngIf="authorized">
+                    <a class="nav-link" (click)="findByKW()" >Поиск по ключевому слову</a>
+                </li>
+                <li class="nav-item" *ngIf="authorized">
+                    <a class="nav-link" (click)="findByS()" >Поиск по источнику</a>
+                </li>
+                <li class="nav-item" *ngIf="authorized">
+                    <a class="nav-link">Поиск по вхождениям</a>
+                </li>
+                <li class="nav-item" *ngIf="authorized">
+                    <a class="nav-link">Статистика</a>
+                </li>
+                <li class="nav-item" *ngIf="authorized">
+                    <a class="nav-link" (click)="logout()">Выйти</a>
                 </li>
             </ul>
         </div>
