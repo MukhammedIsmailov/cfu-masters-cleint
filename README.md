@@ -2,5 +2,5 @@ npm i
 -
 npm run build (for deploy)
 -
-npm run start (dev server)
+npm run dev (dev server)
 -
