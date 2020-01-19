@@ -26,7 +26,7 @@
                     <a class="nav-link" (click)="findByT()">Поиск по вхождениям</a>
                 </li>
                 <li class="nav-item" *ngIf="authorized">
-                    <a class="nav-link">Статистика</a>
+                    <a class="nav-link" (click)="statistics()">Статистика</a>
                 </li>
                 <li class="nav-item" *ngIf="authorized">
                     <a class="nav-link" (click)="logout()">Выйти</a>

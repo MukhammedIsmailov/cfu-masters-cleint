@@ -52,4 +52,9 @@ export class AppService {
         this.setOptions();
         return this.http.get(`${config.apiBaseUrl}/works/${id}`, this._options);
     }
+
+    getStatistics () {
+        this.setOptions();
+        return this.http.get(`${config.apiBaseUrl}/user/statistic`, this._options);
+    }
 }

@@ -1,0 +1,18 @@
+<div class="col-sm-12 mb-3">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Всего работ</th>
+            <th scope="col">Всего источников</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let stat of statisticsData">
+        <tr>
+            <td>{{stat.fullname}}</td>
+            <td>{{stat.totalworknumber}}</td>
+            <td>{{stat.totalusedsource}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

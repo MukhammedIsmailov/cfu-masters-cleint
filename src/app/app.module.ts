@@ -20,6 +20,7 @@ import { TokenStorage } from  './token-storage.service';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { NotificationService } from './notification.service';
 import {EmitterService} from "./emitter.service";
+import {StatisticsComponent} from "../statistics/statistics.component";
 
 const appRoutes: Routes =[
     { path: 'sign-up', component: RegistrationComponent, },
@@ -29,13 +30,14 @@ const appRoutes: Routes =[
     { path: 'find-by-source', component: FindBySourceComponent },
     { path: 'find-by-text', component: FindByWordComponent },
     { path: 'work', component: WorkDetailComponent },
+    { path: 'statistics', component: StatisticsComponent },
 ];
 
 @NgModule({
     imports: [ BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule,
         SimpleNotificationsModule.forRoot(), BrowserAnimationsModule],
     declarations: [ AppComponent, RegistrationComponent, LoginComponent, WorkComponent, FindByKeywordComponent,
-        FindBySourceComponent, FindByWordComponent, WorkDetailComponent],
+        FindBySourceComponent, FindByWordComponent, WorkDetailComponent, StatisticsComponent],
     bootstrap: [ AppComponent ],
     providers: [ AppService, { provide: APP_BASE_HREF, useValue : '/' }, TokenStorage, NotificationService, EmitterService ]
 })

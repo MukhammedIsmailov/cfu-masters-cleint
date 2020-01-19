@@ -45,6 +45,9 @@ export class AppComponent implements OnInit{
     findByT() {
         this.router.navigateByUrl('find-by-text');
     }
+    statistics() {
+        this.router.navigateByUrl('statistics');
+    }
 
     logout() {
         this.tokenStorage.clear();
