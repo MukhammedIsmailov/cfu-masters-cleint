@@ -41,7 +41,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="overview">Обзор</label>
+                <label for="overview">Тема</label>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
@@ -93,6 +93,19 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
+                <label for="director">Научный руководитель</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user-edit"></i>"</div>
+                        <input type="text" name="director" class="form-control" id="director" [(ngModel)]="workData.director" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
                 <label for="keyWords">Ключевые слова</label>
             </div>
             <div class="col-md-9">
@@ -128,3 +141,11 @@
         </div>
     </form>
 </form>
+
+<div class="modal fade bd-example-modal-sm" [ngClass]="{show: popupActive}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            Работа добавлена!
+        </div>
+    </div>
+</div>

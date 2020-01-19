@@ -33,6 +33,10 @@ export class AppComponent {
         this.router.navigateByUrl('find-by-source');
     }
 
+    findByT() {
+        this.router.navigateByUrl('find-by-text');
+    }
+
     logout() {
         this.tokenStorage.clear();
         this.router.navigateByUrl('sign-in');

@@ -6,14 +6,14 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { AppService } from '../app/app.service';
 import { TokenStorage } from '../app/token-storage.service';
 
-import { IWorkDTO } from './find-by-keyword.model';
+import { IWorkDTO } from './find-by-word.model';
 
 @Component({
-    selector: 'cfu-find-by-keyword',
+    selector: 'cfu-find-by-word',
     providers: [],
-    templateUrl: './find-by-keyword.component.html',
+    templateUrl: './find-by-word.component.html',
 })
-export class FindByKeywordComponent implements OnInit {
+export class FindByWordComponent implements OnInit {
     searchChangedSubject: Subject<string> = new Subject<string>();
 
     workData: IWorkDTO[];
@@ -24,7 +24,7 @@ export class FindByKeywordComponent implements OnInit {
         this.searchChangedSubject
             .pipe(debounceTime(500), distinctUntilChanged())
             .subscribe((searchQuery: string) => {
-                this.apiService.findByKeyword(searchQuery).subscribe((data: IWorkDTO[]) => {
+                this.apiService.findByWord(searchQuery).subscribe((data: IWorkDTO[]) => {
                     this.workData = data;
                 })
             });
@@ -33,7 +33,6 @@ export class FindByKeywordComponent implements OnInit {
     searchChanged(searchQueryEvent: any): void {
         this.searchChangedSubject.next(searchQueryEvent.target.value);
     }
-
 
     getWork(id: number) {
         this.router.navigateByUrl(`work?id=${id}`);

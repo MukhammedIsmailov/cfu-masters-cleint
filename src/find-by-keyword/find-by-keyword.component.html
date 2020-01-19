@@ -8,7 +8,7 @@
         <div class="col-sm-12 mb-3" *ngFor="let work of workData">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="#">{{ (work.introduction.length>40)? (work.introduction | slice:0:40)+'...':(work.introduction) }}</a></h5>
+                    <h5 class="card-title" (click)="getWork(work.id)"><a>{{ work.overview }}</a></h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ (work.mainPart.length>40)? (work.mainPart | slice:0:40)+'...':(work.mainPart) }}</h6>
                 </div>
             </div>

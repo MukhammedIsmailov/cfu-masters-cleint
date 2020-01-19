@@ -5,6 +5,7 @@ import { IWorkDTO } from './work.model';
 
 import { AppService } from '../app/app.service';
 import { TokenStorage } from '../app/token-storage.service';
+import { NotificationService } from '../app/notification.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { TokenStorage } from '../app/token-storage.service';
     templateUrl: './work.component.html',
 })
 export class WorkComponent {
-    constructor (private apiService: AppService, private router: Router, private tokenStorage: TokenStorage) {}
+    constructor (private apiService: AppService, private router: Router, private tokenStorage: TokenStorage,
+                 private notificationService: NotificationService) {}
 
     workData: IWorkDTO = {
         introduction: null,
@@ -27,7 +29,10 @@ export class WorkComponent {
         programImplementation: null,
         sources: [],
         sourcesRaw: null,
+        director: null,
     };
+
+    popupActive: boolean = false;
 
     onSubmit() {
         const separator = ';';
@@ -37,7 +42,6 @@ export class WorkComponent {
         this.workData.sourcesRaw = undefined;
 
         this.workData.keyWords = keywords.map((key) => {
-            console.log(key)
             return { title: key };
         });
 
@@ -46,7 +50,7 @@ export class WorkComponent {
         });
 
         this.apiService.addWork(this.workData).subscribe(() => {
-
+            this.notificationService.success('OK', 'Работа успешно добавлена!');
         });
     }
 }

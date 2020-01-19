@@ -23,7 +23,7 @@
                     <a class="nav-link" (click)="findByS()" >Поиск по источнику</a>
                 </li>
                 <li class="nav-item" *ngIf="authorized">
-                    <a class="nav-link">Поиск по вхождениям</a>
+                    <a class="nav-link" (click)="findByT()">Поиск по вхождениям</a>
                 </li>
                 <li class="nav-item" *ngIf="authorized">
                     <a class="nav-link">Статистика</a>
@@ -36,3 +36,4 @@
     </nav>
     <router-outlet></router-outlet>
 </div>
+<simple-notifications></simple-notifications>

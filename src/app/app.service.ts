@@ -42,4 +42,14 @@ export class AppService {
         this.setOptions();
         return this.http.get(`${config.apiBaseUrl}/works/findBySource?source=${source}`, this._options);
     }
+
+    findByWord (word: string) {
+        this.setOptions();
+        return this.http.get(`${config.apiBaseUrl}/works/findByText?text=${encodeURIComponent(word)}`, this._options);
+    }
+
+    getWork (id: number) {
+        this.setOptions();
+        return this.http.get(`${config.apiBaseUrl}/works/${id}`, this._options);
+    }
 }

@@ -9,7 +9,7 @@ import { TokenStorage } from '../app/token-storage.service';
 import { IWorkDTO } from './find-by-source.model';
 
 @Component({
-    selector: 'cfu-find-by-keyword',
+    selector: 'cfu-find-by-source',
     providers: [],
     templateUrl: './find-by-source.component.html',
 })
@@ -32,5 +32,10 @@ export class FindBySourceComponent implements OnInit {
 
     searchChanged(searchQueryEvent: any): void {
         this.searchChangedSubject.next(searchQueryEvent.target.value);
+    }
+
+
+    getWork(id: number) {
+        this.router.navigateByUrl(`work?id=${id}`);
     }
 }

@@ -1,4 +1,5 @@
 export interface IWorkDTO {
+    id: number;
     introduction: string;
     actuals: string;
     aimsAndTasks: string;
@@ -6,9 +7,8 @@ export interface IWorkDTO {
     mainPart: string;
     programImplementation: string;
     conclusions: string;
-    director: string;
     keyWordsRaw: string;
     sourcesRaw: string;
-    keyWords: any;
-    sources: any;
+    keyWords: string[];
+    sources: string[];
 }
