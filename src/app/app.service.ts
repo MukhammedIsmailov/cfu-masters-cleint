@@ -6,20 +6,19 @@ import * as config  from '../../config.json';
 
 @Injectable()
 export class AppService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private tokenStorage: TokenStorage) { }
 
     private _options = { };
 
-
-    // private setOptions() {
-    //     this.tokenStorage.getAccessToken().subscribe((token: string) => {
-    //         this._options = {
-    //             headers: new HttpHeaders({
-    //                 'Authorization': `Bearer ${token}`,
-    //             }),
-    //         }
-    //     });
-    // }
+    private setOptions() {
+        this.tokenStorage.getAccessToken().subscribe((token: string) => {
+            this._options = {
+                headers: new HttpHeaders({
+                    'Authorization': `Bearer ${token}`,
+                }),
+            }
+        });
+    }
 
     registration (data: any) {
         return this.http.post(`${config.apiBaseUrl}/auth/registration`, data);
@@ -29,4 +28,13 @@ export class AppService {
         return this.http.post(`${config.apiBaseUrl}/auth/login`, data);
     }
 
+    addWork (data: any) {
+        this.setOptions();
+        return this.http.post(`${config.apiBaseUrl}/works`, data, this._options);
+    }
+
+    findByKeyword (keyword: string) {
+        this.setOptions();
+        return this.http.get(`${config.apiBaseUrl}/works/findByKeyword?keyword=${keyword}`, this._options);
+    }
 }

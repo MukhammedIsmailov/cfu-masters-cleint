@@ -1,0 +1,17 @@
+<div class="container" style="padding: 10px;">
+    <div class="row">
+        <div class="col-sm-12 mb-3">
+            <input type="text" id="myFilter" class="form-control" placeholder="Введите ключевое слово" (keyup)="searchChanged($event)">
+        </div>
+    </div>
+    <div class="row" id="myItems">
+        <div class="col-sm-12 mb-3" *ngFor="let work of workData">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="#">{{ (work.introduction.length>40)? (work.introduction | slice:0:40)+'...':(work.introduction) }}</a></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ (work.mainPart.length>40)? (work.mainPart | slice:0:40)+'...':(work.mainPart) }}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

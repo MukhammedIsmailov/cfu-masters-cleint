@@ -1,0 +1,130 @@
+<form class="registration_form">
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="introduction">Введение</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file"></i></div>
+                        <textarea name="introduction" class="form-control" id="introduction" [(ngModel)]="workData.introduction"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="actuals">Актуальность</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file"></i></div>
+                        <textarea type="text" name="actuals" class="form-control" id="actuals" [(ngModel)]="workData.actuals"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="aimsAndTasks">Цели и задачи</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file"></i></div>
+                        <textarea type="text" name="aimsAndTasks" class="form-control" id="aimsAndTasks" [(ngModel)]="workData.aimsAndTasks"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="overview">Обзор</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file"></i></div>
+                        <textarea type="text" name="overview" class="form-control" id="overview" [(ngModel)]="workData.overview"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="main">Основная часть</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file"></i></div>
+                        <textarea style="height: 200px;" type="text" name="main" class="form-control" id="main" [(ngModel)]="workData.mainPart"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="programImplementation">Программная реализация</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-desktop"></i></div>
+                        <textarea type="text" name="programImplementation" class="form-control" id="programImplementation" [(ngModel)]="workData.programImplementation"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="conclusions">Заключение</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file"></i></div>
+                        <textarea type="text" name="conclusions" class="form-control" id="conclusions" [(ngModel)]="workData.conclusions"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="keyWords">Ключевые слова</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input type="text" name="keyWords" class="form-control" id="keyWords"
+                               placeholder="Через точку с запятой" [(ngModel)]="workData.keyWordsRaw" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="sources">Список источников</label>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-book"></i></div>
+                        <input type="text" name="sources" class="form-control" id="sources"
+                               placeholder="Через точку с запятой" [(ngModel)]="workData.sourcesRaw" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success" (click)="onSubmit()"><i class="fa fa-plus"></i> Добавить</button>
+            </div>
+        </div>
+    </form>
+</form>
